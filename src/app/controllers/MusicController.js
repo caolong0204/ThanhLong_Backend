@@ -8,7 +8,9 @@ class MusicController {
   async convertToMp3(req, res) {
     const videoId = req.body.videoID;
     if (!videoId) {
-      res.status(420).json({success: false, message: "Please input videoId!!!" });
+      res
+        .status(420)
+        .json({ success: false, message: "Please input videoId!!!" });
     }
     const fetchApi = await fetch(
       `https://youtube-mp36.p.rapidapi.com/dl?id=${videoId}`,
@@ -25,9 +27,11 @@ class MusicController {
     if (fetchResponse.status === "ok") {
       return res.json({
         success: true,
-        song_title: fetchResponse.title,
-        song_link: fetchResponse.link,
-        song_duration: fetchResponse.duration,
+        song: {
+          song_title: fetchResponse.title,
+          song_link: fetchResponse.link,
+          song_duration: fetchResponse.duration,
+        },
         message: fetchResponse.msg,
       });
     }

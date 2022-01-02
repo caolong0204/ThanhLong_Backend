@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/index.js",
-    "startNormal": "node ./src/index.js"
+    "start-debug" :"nodemon --inspect ./src/index.js"
   },
   "keywords": [],
   "author": "LongVc",

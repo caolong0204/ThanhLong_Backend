@@ -18,6 +18,7 @@ class CourseController {
             res.status(400).json({ error: 'Error!!!' });
         })
     };
+
     create(req, res) {
         console.log("====create", req.body);
         course.create(req.body, (err) => {
@@ -27,6 +28,7 @@ class CourseController {
             res.send("create ok");
         })
     };
+    
     getListPerson(req, res) {
         person.find({}, (err, data) => {
             if (!err) {
