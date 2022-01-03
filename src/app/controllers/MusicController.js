@@ -27,7 +27,7 @@ class MusicController {
     if (fetchResponse.status === "ok") {
       return res.json({
         success: true,
-        song: {
+        songInfor: {
           song_title: fetchResponse.title,
           song_link: fetchResponse.link,
           song_duration: fetchResponse.duration,
